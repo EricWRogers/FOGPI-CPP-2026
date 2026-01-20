@@ -4,11 +4,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 #include <string.h>
 
 #include "cpup/io.h"
 #include "cpup/vec.h"
+#include "cpup/types.h"
 
 typedef enum {
     TODO = 0,
@@ -99,7 +99,7 @@ void remove_task(int _index)
     if (0 > _index || vec_count(&tasks) <= _index)
         return;
     
-    free(tasks[_index].name);
+    free((char*)tasks[_index].name);
 
     vec_remove_at(&tasks, _index);
 }
