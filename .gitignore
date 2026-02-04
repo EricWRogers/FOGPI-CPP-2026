@@ -1,6 +1,8 @@
 # bin
 fogpi
-tasks.bin
+
+fogpi.exe
+SDL3.dll
 
 build/
 
