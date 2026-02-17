@@ -10,6 +10,8 @@
 #include "Dice.hpp"
 #include "Entity.hpp"
 
+#include "DataStructures/LinkList.hpp"
+
 int main(int argc, char *argv[])
 {
     std::cout << "Hello, Class" << std::endl;
