@@ -1,12 +1,13 @@
 #include "Room.hpp"
 
-//#include "Player.hpp"
+#include "Player.hpp"
 
 #include <fstream>
 #include <string>
 
 void Room::Load(std::string _path)
 {
+    exit(1);
     m_map.clear();
     m_doors.clear();
 
@@ -67,15 +68,20 @@ void Room::Load(std::string _path)
     }
 
     int doorCount = 0;
+    exit(1);
 
     for (int y = 0; y < m_map.size(); y++)
     {
         for (int x = 0; x < m_map[y].size(); x++)
         {
+            exit(1);
             if (m_map[y][x] == 'S')
             {
-                //if (m_player == nullptr)
-                //    m_player = new Player();
+                exit(1);
+                if (m_player == nullptr)
+                    m_player = new Player();
+                
+                m_player->Start(Vec2(x,y));
                 
                 // LEAVE COMMENTED TODAY
                 //m_player->Init(Vector2D(x, y));
@@ -99,11 +105,12 @@ void Room::Load(std::string _path)
 void Room::Update()
 {
     Draw();
-    //if (m_player != nullptr)
-    //{
-    //    m_player->room = this;
-    //    m_player->Update();
-    //}
+    if (m_player != nullptr)
+    {
+        printf("HELP\n");
+        m_player->room = this;
+        m_player->Update();
+    }
 }
 
 void Room::Draw()
@@ -126,9 +133,9 @@ char Room::GetLocation(Vec2 _pos)
     if (_pos.x >= m_map[_pos.y].size())
         return ' ';
 
-    //if (m_player != nullptr)
-    //    if (m_player->GetPosition() == _pos)
-    //        return m_player->Draw();
+    if (m_player != nullptr)
+        if (m_player->GetPosition() == _pos)
+            return m_player->Draw();
     
     return m_map[_pos.y][_pos.x];
 }
