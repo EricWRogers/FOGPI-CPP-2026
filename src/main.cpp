@@ -15,8 +15,16 @@
 int main(int argc, char *argv[])
 {
     LinkList<int> list;
-    list.Insert(0, 5);
     
+    for (int i = 0; i < 5; i++)
+        list.Insert(i, i);
+    
+    int size = list.Count();
+    
+    for (int i = 0; auto link = list.GetLinkAt(i); i++) {
+        std::cout << "link " << link->data << std::endl;
+    }
+
     std::cout << "Hello, Class" << std::endl;
 
     Vec2 v;
