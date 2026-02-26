@@ -4,6 +4,8 @@
 void Player::Start(Vec2 _pos) {
     m_character = 'P';
     m_position = _pos;
+
+    m_keyCount = 5;
 }
 
 void Player::Update() {

@@ -7,7 +7,6 @@
 
 void Room::Load(std::string _path)
 {
-    exit(1);
     m_map.clear();
     m_doors.clear();
 
@@ -68,16 +67,12 @@ void Room::Load(std::string _path)
     }
 
     int doorCount = 0;
-    exit(1);
-
     for (int y = 0; y < m_map.size(); y++)
     {
         for (int x = 0; x < m_map[y].size(); x++)
         {
-            exit(1);
             if (m_map[y][x] == 'S')
             {
-                exit(1);
                 if (m_player == nullptr)
                     m_player = new Player();
                 
